@@ -68,7 +68,6 @@ export default defineComponent({
 
 		const clickBackDrop = () => {
 			emit("backdropClicked");
-			deactivate(); // 閉じた時にフォーカストラップを解除する
 		};
 
 		watchEffect((onInvalidate) => {
