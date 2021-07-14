@@ -1,0 +1,106 @@
+<template>
+	<teleport v-if="visible" to="#app">
+		<div
+			ref="focusTrapTarget"
+			role="dialog"
+			aria-modal
+			aria-labelldby="modal-title"
+			aria-describedby="modal-body"
+			v-bind="$attrs"
+			class="fixed top-0 left-0 flex items-start justify-center w-screen h-screen overflow-y-scroll backdrop-filter backdrop-blur-md"
+			@click.stop="clickBackDrop"
+			@keydown.esc="clickBackDrop"
+		>
+			<section
+				class="box-border min-w-60 max-w-screen-sm p-3 mx-2 my-16 bg-white shadow-xl"
+				@click.stop
+			>
+				<h2
+					tabindex="0"
+					id="modal-title"
+					ref="titleRef"
+					class="w-full text-center focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
+				>
+					<slot name="title"></slot>
+				</h2>
+				<div
+					tabindex="0"
+					id="modal-body"
+					class="py-3 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
+				>
+					<slot name="body" />
+				</div>
+				<footer
+					class="focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
+				>
+					<slot name="footer"></slot>
+				</footer>
+			</section>
+		</div>
+	</teleport>
+</template>
+
+<script lang="ts">
+import {
+	defineComponent,
+	nextTick,
+	onUnmounted,
+	onMounted,
+	ref,
+	watchEffect,
+} from "vue";
+import { useFocusTrap } from "@vueuse/integrations";
+
+export default defineComponent({
+	name: "AccessibleModal",
+	props: {
+		visible: {
+			type: Boolean,
+			required: true,
+		},
+	},
+	emits: ["backdropClicked"],
+	setup(props, { emit }) {
+		const focusTrapTarget = ref(null);
+		const { activate, deactivate } = useFocusTrap(focusTrapTarget, {
+			immediate: true,
+		});
+
+		const clickBackDrop = () => {
+			emit("backdropClicked");
+			deactivate(); // 閉じた時にフォーカストラップを解除する
+		};
+
+		watchEffect((onInvalidate) => {
+			if (!props.visible) return;
+
+			activate(); // モーダルが開くたびにフォーカストラップする
+			const overflow = document.documentElement.style.overflow;
+			document.documentElement.style.overflow = "hidden";
+
+			onInvalidate(() => {
+				document.documentElement.style.overflow = overflow;
+			});
+		});
+
+		const titleRef = ref<HTMLElement | null>(null);
+
+		onMounted(() => {
+			nextTick(() => {
+				titleRef.value?.focus();
+				document.getElementById("app")?.setAttribute("aria-hidden", "true"); // aria-modal非対応UAのためにバックドロップの後ろのコンテンツをaria-hiddenにする
+			});
+		});
+
+		onUnmounted(() => {
+			document.getElementById("app")?.removeAttribute("aria-hidden"); // モーダル解除時に消すのを忘れない
+		});
+
+		return {
+			clickBackDrop,
+			titleRef,
+			focusTrapTarget,
+		};
+	},
+});
+</script>
