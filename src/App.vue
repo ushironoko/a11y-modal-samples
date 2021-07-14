@@ -57,10 +57,20 @@
 		@backdrop-clicked="handleAccessibleModalClose"
 	>
 		<template #title>
-			<p class="font-bold">title</p>
+			<p
+				tabindex="0"
+				class="font-bold focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
+			>
+				title
+			</p>
 		</template>
 		<template #body>
-			<p>body text</p>
+			<p
+				tabindex="0"
+				class="focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
+			>
+				body text
+			</p>
 		</template>
 		<template #footer>
 			<div class="flex justify-end">

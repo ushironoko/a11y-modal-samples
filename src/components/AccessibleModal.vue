@@ -15,24 +15,13 @@
 				class="box-border min-w-60 max-w-screen-sm p-3 mx-2 my-16 bg-white shadow-xl"
 				@click.stop
 			>
-				<h2
-					tabindex="0"
-					id="modal-title"
-					ref="titleRef"
-					class="w-full text-center focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
-				>
+				<h2 id="modal-title" ref="titleRef" class="w-full text-center">
 					<slot name="title"></slot>
 				</h2>
-				<div
-					tabindex="0"
-					id="modal-body"
-					class="py-3 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
-				>
+				<div id="modal-body" class="py-3">
 					<slot name="body" />
 				</div>
-				<footer
-					class="focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
-				>
+				<footer>
 					<slot name="footer"></slot>
 				</footer>
 			</section>
