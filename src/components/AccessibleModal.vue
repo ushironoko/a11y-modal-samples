@@ -62,7 +62,7 @@ export default defineComponent({
 	emits: ["backdropClicked"],
 	setup(props, { emit }) {
 		const focusTrapTarget = ref(null);
-		const { deactivate } = useFocusTrap(focusTrapTarget, {
+		useFocusTrap(focusTrapTarget, {
 			immediate: true, // immediate: true を渡してコンポーネントマウント時にフォーカストラップを開始する
 		});
 
