@@ -10,7 +10,7 @@
 					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:transition focus-visible:duration-100"
 					@click="handleNoAccessibleModalOpen"
 				>
-					open
+					ダメ
 				</button>
 			</div>
 		</div>
@@ -21,7 +21,7 @@
 					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:transition focus-visible:duration-100"
 					@click="handleAccessibleModalOpen"
 				>
-					open
+					ヨシ
 				</button>
 			</div>
 		</div>
