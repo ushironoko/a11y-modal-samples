@@ -62,8 +62,8 @@ export default defineComponent({
 	emits: ["backdropClicked"],
 	setup(props, { emit }) {
 		const focusTrapTarget = ref(null);
-		const { activate, deactivate } = useFocusTrap(focusTrapTarget, {
-			immediate: true,
+		const { deactivate } = useFocusTrap(focusTrapTarget, {
+			immediate: true, // immediate: true を渡してコンポーネントマウント時にフォーカストラップを開始する
 		});
 
 		const clickBackDrop = () => {
@@ -74,7 +74,6 @@ export default defineComponent({
 		watchEffect((onInvalidate) => {
 			if (!props.visible) return;
 
-			activate(); // モーダルが開くたびにフォーカストラップする
 			const overflow = document.documentElement.style.overflow;
 			document.documentElement.style.overflow = "hidden";
 
