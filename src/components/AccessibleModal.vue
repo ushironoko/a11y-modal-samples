@@ -4,7 +4,7 @@
 			ref="focusTrapTarget"
 			role="dialog"
 			aria-modal
-			aria-labelldby="modal-title"
+			aria-labelledby="modal-title"
 			aria-describedby="modal-body"
 			v-bind="$attrs"
 			class="fixed top-0 left-0 flex items-start justify-center w-screen h-screen overflow-y-scroll backdrop-filter backdrop-blur-md"

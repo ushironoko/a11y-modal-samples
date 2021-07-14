@@ -7,7 +7,7 @@
 			</div>
 			<div class="mb-2">
 				<button
-					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
+					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:transition focus-visible:duration-100"
 					@click="handleNoAccessibleModalOpen"
 				>
 					open
@@ -18,7 +18,7 @@
 			<div class="mb-2">
 				<button
 					ref="accessibleModalOpenButtonRef"
-					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
+					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:transition focus-visible:duration-100"
 					@click="handleAccessibleModalOpen"
 				>
 					open
@@ -43,7 +43,7 @@
 		<template #footer>
 			<div class="flex justify-end">
 				<button
-					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
+					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:transition focus-visible:duration-100"
 					@click="handleNoAccessibleModalClose"
 				>
 					close
@@ -59,7 +59,7 @@
 		<template #title>
 			<p
 				tabindex="0"
-				class="font-bold focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
+				class="font-bold focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:transition focus-visible:duration-100"
 			>
 				title
 			</p>
@@ -67,7 +67,7 @@
 		<template #body>
 			<p
 				tabindex="0"
-				class="focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
+				class="focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:transition focus-visible:duration-100"
 			>
 				body text
 			</p>
@@ -75,7 +75,7 @@
 		<template #footer>
 			<div class="flex justify-end">
 				<button
-					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border focus:outline-none focus:ring-4 focus:ring-blue-300 focus:transition focus:duration-100"
+					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:transition focus-visible:duration-100"
 					@click="handleAccessibleModalClose"
 				>
 					close
