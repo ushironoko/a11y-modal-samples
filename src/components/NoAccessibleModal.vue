@@ -6,7 +6,7 @@
 			@click.stop="clickBackDrop"
 		>
 			<section
-				class="box-border max-w-screen-sm p-3 mx-2 my-16 bg-white shadow-xl"
+				class="box-border min-w-60 max-w-screen-sm p-3 mx-2 my-16 bg-white shadow-xl"
 				@click.stop
 			>
 				<header>
