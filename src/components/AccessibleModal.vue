@@ -1,5 +1,5 @@
 <template>
-	<teleport v-if="visible" to="#app">
+	<teleport v-if="visible" to="#contents">
 		<div
 			ref="focusTrapTarget"
 			role="dialog"
@@ -15,15 +15,15 @@
 				class="box-border min-w-60 max-w-screen-sm p-3 mx-2 my-16 bg-white shadow-xl"
 				@click.stop
 			>
-				<h2 id="modal-title" ref="titleRef" class="w-full text-center">
+				<h2 id="modal-title" tabindex="0" ref="titleRef" class="w-full text-center">
 					<slot name="title"></slot>
 				</h2>
-				<div id="modal-body" class="py-3">
+				<p id="modal-body" tabindex="0" class="py-3">
 					<slot name="body" />
+				</p>
+				<div>
+					<slot name="bottom"></slot>
 				</div>
-				<footer>
-					<slot name="footer"></slot>
-				</footer>
 			</section>
 		</div>
 	</teleport>

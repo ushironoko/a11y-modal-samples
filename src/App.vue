@@ -35,15 +35,15 @@
 		@backdrop-clicked="handleNoAccessibleModalClose"
 	>
 		<template #title>
-			<p class="font-bold">title</p>
+			<p id="modal-title" class="font-bold">title</p>
 		</template>
-		<template #body>
+		<template id="modal-body" #body>
 			<p>body text</p>
 		</template>
 		<template #footer>
 			<div class="flex justify-end">
 				<button
-					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:transition focus-visible:duration-100"
+					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border"
 					@click="handleNoAccessibleModalClose"
 				>
 					close
@@ -57,25 +57,15 @@
 		@backdrop-clicked="handleAccessibleModalClose"
 	>
 		<template #title>
-			<p
-				tabindex="0"
-				class="font-bold focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:transition focus-visible:duration-100"
-			>
-				title
-			</p>
+			title
 		</template>
 		<template #body>
-			<p
-				tabindex="0"
-				class="focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:transition focus-visible:duration-100"
-			>
-				body text
-			</p>
+			body text
 		</template>
-		<template #footer>
+		<template #bottom>
 			<div class="flex justify-end">
 				<button
-					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 focus-visible:transition focus-visible:duration-100"
+					class="px-2 rounded-md h-11 text-white bg-gray-800 box-border"
 					@click="handleAccessibleModalClose"
 				>
 					close
