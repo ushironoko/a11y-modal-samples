@@ -3,7 +3,7 @@
 		<div
 			ref="focusTrapTarget"
 			role="dialog"
-			aria-modal
+			aria-modal="true"
 			aria-labelledby="modal-title"
 			aria-describedby="modal-body"
 			v-bind="$attrs"
@@ -18,9 +18,9 @@
 				<h2 id="modal-title" tabindex="0" ref="titleRef" class="w-full text-center">
 					<slot name="title"></slot>
 				</h2>
-				<p id="modal-body" tabindex="0" class="py-3">
+				<div id="modal-body" tabindex="0" class="py-3">
 					<slot name="body" />
-				</p>
+				</div>
 				<div>
 					<slot name="bottom"></slot>
 				</div>

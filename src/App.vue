@@ -57,10 +57,10 @@
 		@backdrop-clicked="handleAccessibleModalClose"
 	>
 		<template #title>
-			title
+			<p>title</p>
 		</template>
 		<template #body>
-			body text
+			<p>このモーダルを開いている間は、フォーカスがトラップされます</p>
 		</template>
 		<template #bottom>
 			<div class="flex justify-end">
